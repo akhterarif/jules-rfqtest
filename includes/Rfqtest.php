@@ -148,6 +148,9 @@ final class Rfqtest {
         // initialize the classes
         add_action( 'init', [ $this, 'init_classes' ], 4 );
         add_action( 'plugins_loaded', [ $this, 'after_plugins_loaded' ] );
+
+        // Add currency switching hook
+        add_action( 'template_redirect', [ '\WeLabs\Rfqtest\Helper', 'maybe_switch_currency_by_location' ] );
     }
 
     /**
